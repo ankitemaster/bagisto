@@ -148,6 +148,21 @@
 
                     @endif
 
+                    <accordian :title="'{{ __('admin::app.catalog.categories.type') }}'" :active="true">
+                        <div slot="body">
+                            <div class="control-group" :class="[errors.has('type') ? 'has-error' : '']">
+                                <label for="type" class="required">{{ __('admin::app.catalog.categories.type') }}</label>
+                                <select class="control" name="type" v-validate="'required'" data-vv-as="&quot;{{ __('admin::app.catalog.categories.type') }}&quot;">
+                                    <option value="1" <?php if($category->type == '1') echo 'selected'; ?> >Simple</option>
+                                    <option value="2" <?php if($category->type == '2') echo 'selected'; ?> >Customizable</option>
+                                </select>
+                                <span class="control-error" v-if="errors.has('type')">
+                                    @{{ errors.first('type') }}
+                                </span>
+                            </div>
+                        </div>
+                    </accordian>
+
                     <accordian :title="'{{ __('admin::app.catalog.categories.filterable-attributes') }}'" :active="true">
                         <div slot="body">
 

@@ -136,6 +136,21 @@
 
                     @endif
 
+                    <accordian :title="'{{ __('admin::app.catalog.categories.type') }}'" :active="true">
+                        <div slot="body">
+                            <div class="control-group" :class="[errors.has('type') ? 'has-error' : '']">
+                                <label for="type" class="required">{{ __('admin::app.catalog.categories.type') }}</label>
+                                <select class="control" name="type" v-validate="'required'" data-vv-as="&quot;{{ __('admin::app.catalog.categories.type') }}&quot;">
+                                    <option value="1">Simple</option>
+                                    <option value="2">Customizable</option>
+                                </select>
+                                <span class="control-error" v-if="errors.has('type')">
+                                    @{{ errors.first('type') }}
+                                </span>
+                            </div>
+                        </div>
+                    </accordian>
+
                     <accordian :title="'{{ __('admin::app.catalog.categories.filterable-attributes') }}'" :active="true">
                         <div slot="body">
 

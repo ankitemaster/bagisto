@@ -37,6 +37,7 @@ class Category extends TranslatableModel implements CategoryContract
         'display_mode',
         'parent_id',
         'additional',
+        'type',
     ];
 
     protected $with = ['translations'];
