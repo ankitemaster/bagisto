@@ -64,6 +64,9 @@ class SessionController extends Controller
 
         $customer = auth($this->guard)->user();
 
+        // echo json_encode($this->guard);
+        // die;
+
         return response()->json([
             'token'   => $jwtToken,
             'message' => 'Logged in successfully.',
