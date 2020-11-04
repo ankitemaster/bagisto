@@ -11,16 +11,6 @@ Homestead.yaml
 /node_modules
 npm-debug.log
 package-lock.json
-/public/css
-/public/fonts
-/public/js
-/public/hot
-/public/storage
-/public/themes
-/public/vendor
-/resources/lang/vendor/admin/*
-/resources/lang/vendor/shop/*
-/resources/lang/vendor/velocity/*
 /storage/*.key
 /storage/dcc-data/
 /vendor
