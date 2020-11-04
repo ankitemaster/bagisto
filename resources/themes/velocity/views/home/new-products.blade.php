@@ -27,7 +27,7 @@
                         @endpush
 
                         <div class="row {{ $direction }}">
-                            <div class="col-9 no-padding carousel-products vc-full-screen with-recent-viewed" v-if="!isMobileView">
+                            <div class="col-12 no-padding carousel-products vc-full-screen with-recent-viewed" v-if="!isMobileView">
                                 <carousel-component
                                     slides-per-page="5"
                                     navigation-enabled="hide"
