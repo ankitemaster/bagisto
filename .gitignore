@@ -18,7 +18,6 @@ package-lock.json
 /public/storage
 /public/themes
 /public/vendor
-/resources/themes/velocity/*
 /resources/lang/vendor/admin/*
 /resources/lang/vendor/shop/*
 /resources/lang/vendor/velocity/*
