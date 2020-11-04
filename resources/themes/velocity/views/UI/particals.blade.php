@@ -54,13 +54,16 @@
             aria-label="Logo">
 
             @if ($logo = core()->getCurrentChannel()->logo_url)
+            
                 <img class="logo" src="{{ $logo }}" alt="" width="" height="50" />
+
             @else
+
                 <img class="logo" src="{{ asset('themes/velocity/assets/images/logo-text.png') }}" alt="" width="" height="50" />
+
             @endif
         </a>
     </script>
-
     <script type="text/x-template" id="searchbar-template">
         <div class="right searchbar">
             <div class="row">
