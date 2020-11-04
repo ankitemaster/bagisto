@@ -54,12 +54,12 @@
             aria-label="Logo">
 
             @if ($logo = core()->getCurrentChannel()->logo_url)
-            
-                <img class="logo" src="{{ $logo }}" alt="" width="" height="50" />
+
+                <img class="logo" src="{{ $logo }}" alt="" height="50" />
 
             @else
 
-                <img class="logo" src="{{ asset('themes/velocity/assets/images/logo-text.png') }}" alt="" width="" height="50" />
+                <img class="logo" src="{{ asset('themes/velocity/assets/images/logo-text.png') }}" alt=""  height="50" />
 
             @endif
         </a>
