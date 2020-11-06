@@ -70,6 +70,8 @@ class ResourceController extends Controller
                 $query = $query->orderBy('id', 'desc');
             }
 
+            $query = $query->where('parent_id','!=', NULL);
+
             return $query;
         });
 

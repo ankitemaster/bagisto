@@ -1,5 +1,11 @@
 <div class="aside-nav">
     <ul>
+        <li>
+            <a href="{{ route('admin.catalog.products.brands') }}">Brands</a>
+        </li>
+         <li>
+            <a href="{{ route('admin.catalog.products.models') }}">Models</a>
+        </li>
         @if (request()->route()->getName() != 'admin.configuration.index')
             <?php $keys = explode('.', $menu->currentKey);  ?>
 
@@ -12,9 +18,35 @@
                         @if ($menu->getActive($item))
                             <i class="angle-right-icon"></i>
                         @endif
+
+
                     </a>
                 </li>
+
             @endforeach
+
+            @else
+
+            <li class="active">
+                <a href="http://localhost:8000/admin/catalog/products"> 
+                    Products<i class="angle-right-icon"></i>
+                </a>
+            </li> 
+            <li>
+                <a href="http://localhost:8000/admin/catalog/categories">
+                    Categories </a>
+            </li> 
+            <li>
+                <a href="http://localhost:8000/admin/catalog/attributes">
+                    Attributes
+                </a>
+            </li> 
+            <li>
+                <a href="http://localhost:8000/admin/catalog/families">
+                    Attribute Families
+                </a>
+            </li>
+
             @endif
         @else
             @foreach ($config->items as $key => $item)
@@ -27,6 +59,7 @@
                         @endif
                     </a>
                 </li>
+
             @endforeach
         @endif
     </ul>

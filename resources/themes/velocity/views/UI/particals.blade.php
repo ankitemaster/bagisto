@@ -175,7 +175,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
 
-    <script type="text/x-template" id="image-search-component-template">
+    <!-- <script type="text/x-template" id="image-search-component-template">
         <div class="d-inline-block image-search-container">
             <label for="image-search-container">
                 <i class="icon camera-icon"></i>
@@ -193,7 +193,7 @@
                     :src="uploadedImageUrl" alt="" width="20" height="20" />
             </label>
         </div>
-    </script>
+    </script> -->
 
     <script type="text/javascript">
         (() => {

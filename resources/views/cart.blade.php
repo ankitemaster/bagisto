@@ -35,11 +35,11 @@
                                         <a href="product.html">Dress Belt</a>
                                     </h2>
                                 </td>
-                                <td>$17.90</td>
+                                <td>₹17.90</td>
                                 <td>
                                     <input class="vertical-quantity form-control" type="text">
                                 </td>
-                                <td>$17.90</td>
+                                <td>₹17.90</td>
                             </tr>
                             <tr class="product-action-row">
                                 <td colspan="4" class="clearfix">
@@ -65,11 +65,11 @@
                                         <a href="product.html">Denim Jeans</a>
                                     </h2>
                                 </td>
-                                <td>$8.90</td>
+                                <td>₹8.90</td>
                                 <td>
                                     <input class="vertical-quantity form-control" type="text">
                                 </td>
-                                <td>$8.90</td>
+                                <td>₹8.90</td>
                             </tr>
                             <tr class="product-action-row">
                                 <td colspan="4" class="clearfix">
@@ -156,7 +156,7 @@
                                 <label>Flat Way</label>
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="flat-rate">
-                                    <label class="custom-control-label" for="flat-rate">Fixed $5.00</label>
+                                    <label class="custom-control-label" for="flat-rate">Fixed ₹5.00</label>
                                 </div><!-- End .custom-checkbox -->
                             </div><!-- End .form-group -->
 
@@ -164,7 +164,7 @@
                                 <label>Best Rate</label>
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="best-rate">
-                                    <label class="custom-control-label" for="best-rate">Table Rate $15.00</label>
+                                    <label class="custom-control-label" for="best-rate">Table Rate ₹15.00</label>
                                 </div><!-- End .custom-checkbox -->
                             </div><!-- End .form-group -->
                         </form>
@@ -174,18 +174,18 @@
                         <tbody>
                             <tr>
                                 <td>Subtotal</td>
-                                <td>$17.90</td>
+                                <td>₹17.90</td>
                             </tr>
 
                             <tr>
                                 <td>Tax</td>
-                                <td>$0.00</td>
+                                <td>₹0.00</td>
                             </tr>
                         </tbody>
                         <tfoot>
                             <tr>
                                 <td>Order Total</td>
-                                <td>$17.90</td>
+                                <td>₹17.90</td>
                             </tr>
                         </tfoot>
                     </table>

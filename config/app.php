@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://localhost:8000'),
 
     /*
     |--------------------------------------------------------------------------
@@ -129,7 +129,7 @@ return [
     |
     */
 
-    'currency' => env('APP_CURRENCY', 'USD'),
+    'currency' => env('APP_CURRENCY', 'INR'),
 
     /*
     |--------------------------------------------------------------------------

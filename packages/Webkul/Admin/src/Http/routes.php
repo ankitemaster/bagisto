@@ -48,10 +48,6 @@ Route::group(['middleware' => ['web']], function () {
                 'view' => 'admin::customers.index',
             ])->name('admin.customer.index');
 
-            Route::get('customers/create', 'Webkul\Admin\Http\Controllers\Customer\CustomerController@create')->defaults('_config', [
-                'view' => 'admin::customers.create',
-            ])->name('admin.customer.create');
-
             Route::post('customers/create', 'Webkul\Admin\Http\Controllers\Customer\CustomerController@store')->defaults('_config', [
                 'redirect' => 'admin.customer.index',
             ])->name('admin.customer.store');
@@ -255,6 +251,36 @@ Route::group(['middleware' => ['web']], function () {
             // Catalog Routes
             Route::prefix('catalog')->group(function () {
                 Route::get('/sync', 'Webkul\Product\Http\Controllers\ProductController@sync');
+
+                 // Catalog Brands Routes
+                Route::get('/brands', 'Webkul\Product\Http\Controllers\ProductController@brands')->defaults('_config', [
+                    'view' => 'admin::catalog.products.brands',
+                ])->name('admin.catalog.products.brands');
+
+                // Catalog Brands Create Routes
+                Route::post('/brandsCreate', 'Webkul\Product\Http\Controllers\ProductController@brandsCreate'
+                )->name('admin.catalog.products.brandsCreate');
+
+                Route::get('/brandsDelete/{id}', 'Webkul\Product\Http\Controllers\ProductController@brandsDelete'
+                )->name('admin.catalog.products.brandsDelete');
+
+                Route::post('/brandsEdit', 'Webkul\Product\Http\Controllers\ProductController@brandsEdit'
+                )->name('admin.catalog.products.brandsEdit');
+
+                // Catalog Models Create Routes
+                Route::post('/modelsCreate', 'Webkul\Product\Http\Controllers\ProductController@modelsCreate'
+                )->name('admin.catalog.products.modelsCreate');
+
+                Route::get('/modelsDelete/{id}', 'Webkul\Product\Http\Controllers\ProductController@modelsDelete'
+                )->name('admin.catalog.products.modelsDelete');
+
+                Route::put('/modelsEdit', 'Webkul\Product\Http\Controllers\ProductController@modelsEdit'
+                )->name('admin.catalog.products.modelsEdit');
+
+                // Catalog Models Routes
+                Route::get('/models', 'Webkul\Product\Http\Controllers\ProductController@models')->defaults('_config', [
+                    'view' => 'admin::catalog.products.models',
+                ])->name('admin.catalog.products.models');
 
                 // Catalog Product Routes
                 Route::get('/products', 'Webkul\Product\Http\Controllers\ProductController@index')->defaults('_config', [

@@ -71,12 +71,15 @@ class AdminServiceProvider extends ServiceProvider
                                 foreach (config('menu.admin') as $key1 => $findMatced) {
                                     if ($findMatced['key'] == $neededItem) {
                                         $item['route'] = $findMatced['route'];
+                                    }else{
+                                        $item['route'] = $findMatced['route'];
                                     }
                                 }
                             }
                         }
                     }
                 }
+
 
                 $tree->add($item, 'menu');
             }

@@ -53,7 +53,7 @@
 
                         <div class="control-group" :class="[errors.has('type') ? 'has-error' : '']">
                             <label for="type" class="required">{{ __('admin::app.catalog.products.product-type') }}</label>
-                            <select class="control" v-validate="'required'" id="type" name="type" {{ $familyId ? 'disabled' : '' }} data-vv-as="&quot;{{ __('admin::app.catalog.products.product-type') }}&quot;">
+                            <select onchange="myFunction()" class="control" v-validate="'required'" id="type" name="type" {{ $familyId ? 'disabled' : '' }} data-vv-as="&quot;{{ __('admin::app.catalog.products.product-type') }}&quot;">
 
                                 @foreach($productTypes as $key => $productType)
                                     <option value="{{ $key }}" {{ request()->input('type') == $productType['key'] ? 'selected' : '' }}>
@@ -67,6 +67,16 @@
                                 <input type="hidden" name="type" value="{{ app('request')->input('type') }}"/>
                             @endif
                             <span class="control-error" v-if="errors.has('type')">@{{ errors.first('type') }}</span>
+                        </div>
+
+                        <!---- item type ---> 
+                        <div class="control-group" id="models_item" style="display: none;">
+                            <label for="type" class="required" >Models</label>
+                            <select class="control" v-validate="'required'" id="item_type_id" name="item_type_id" {{ $familyId ? 'disabled' : '' }} data-vv-as="&quot;{{ __('admin::app.catalog.products.product-type') }}&quot;">
+                                    <option value=""></option>
+                                    <option value="tshirt">T-Shirt</option>
+                                    <option value="mobile">Mobile</option>
+                            </select>
                         </div>
 
                         <div class="control-group" :class="[errors.has('attribute_family_id') ? 'has-error' : '']">
@@ -150,8 +160,11 @@
                     {!! view_render_event('bagisto.admin.catalog.product.create_form_accordian.configurable_attributes.after') !!}
                 @endif
 
+
+
             </div>
 
+           
         </form>
     </div>
 @stop
@@ -168,4 +181,20 @@
             })
         });
     </script>
+    <script>
+
+        function myFunction() {
+          var x = document.getElementById("type").value;
+          // document.getElementById("demo").innerHTML = "You selected: " + x;
+
+          if(x == 'customizable')
+           {
+                $('#models_item').show();
+           }
+           else{
+                $('#models_item').hide();
+           }
+        }
+            
+      </script>
 @endpush

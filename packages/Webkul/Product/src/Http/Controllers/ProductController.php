@@ -16,6 +16,7 @@ use Webkul\Inventory\Repositories\InventorySourceRepository;
 use Webkul\Product\Repositories\ProductDownloadableLinkRepository;
 use Webkul\Product\Repositories\ProductDownloadableSampleRepository;
 use Webkul\Product\Repositories\ProductAttributeValueRepository;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -123,6 +124,70 @@ class ProductController extends Controller
     public function index()
     {
         return view($this->_config['view']);
+    }
+
+    public function brands()
+    {   
+        $brands = DB::table('brands')->get();
+        return view($this->_config['view'])->with('brands',$brands);
+    }
+
+    public function brandsCreate()
+    {
+        $inputs = request()->all();
+        DB::table('brands')->insert(
+            ['name' => $inputs['b_name']]
+        );
+        return redirect()->back();
+    }
+
+    public function brandsDelete($id)
+    {
+        $b_id = $id;
+
+        //print_r($b_id);die;
+        DB::table('brands')->where('id', $b_id)->delete();
+        return redirect()->back();
+    }
+
+    public function brandsEdit(){
+
+        $inputs = request()->all();
+        $brandsUpdate = DB::table('brands')->where('id', $inputs['id'])->update(['name'=>$inputs['name']]);
+        return redirect()->back();
+
+    }
+
+    public function models()
+    {
+        $models = DB::table('models')->get();
+        return view($this->_config['view'])->with('models',$models);
+    }
+
+     public function modelsCreate()
+    {
+        $inputs = request()->all();
+        DB::table('models')->insert(
+            ['name' => $inputs['m_name']]
+        );
+        return redirect()->back();
+    }
+
+    public function modelsDelete($id)
+    {
+        $m_id = $id;
+
+        //print_r($b_id);die;
+        DB::table('models')->where('id', $m_id)->delete();
+        return redirect()->back();
+    }
+
+    public function modelsEdit(){
+
+        $inputs = request()->all();
+        $brandsUpdate = DB::table('models')->where('id', $inputs['id'])->update(['name'=>$inputs['name']]);
+        return redirect()->back();
+
     }
 
     /**

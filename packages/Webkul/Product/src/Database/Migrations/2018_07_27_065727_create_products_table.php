@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('sku')->unique();
             $table->string('type');
+            $table->text('item_type_id')->nullable();
             $table->timestamps();
             $table->integer('parent_id')->unsigned()->nullable();
             $table->integer('attribute_family_id')->unsigned()->nullable();

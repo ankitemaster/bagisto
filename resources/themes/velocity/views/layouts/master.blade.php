@@ -19,6 +19,7 @@
 
         <link rel="stylesheet" href="{{ asset('themes/velocity/assets/css/velocity.css') }}" />
         <link rel="stylesheet" href="{{ asset('themes/velocity/assets/css/bootstrap.min.css') }}" />
+        
 
         @if (core()->getCurrentLocale()->direction == 'rtl')
             <link href="{{ asset('themes/velocity/assets/css/bootstrap-flipped.css') }}" rel="stylesheet">
