@@ -31,6 +31,7 @@ class SessionController extends Controller
     {
         $this->guard = request()->has('token') ? 'api' : 'customer';
 
+        //print_r($this->guard);die;
         auth()->setDefaultDriver($this->guard);
 
         $this->middleware('auth:' . $this->guard, ['only' => ['get', 'update', 'destroy']]);
@@ -84,7 +85,7 @@ class SessionController extends Controller
         $customer = auth($this->guard)->user();
 
         return response()->json([
-            'data' => new CustomerResource($customer),
+            'data' => new CustomerResource($customer)
         ]);
     }
 

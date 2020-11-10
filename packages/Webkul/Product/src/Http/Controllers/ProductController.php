@@ -17,6 +17,7 @@ use Webkul\Product\Repositories\ProductDownloadableLinkRepository;
 use Webkul\Product\Repositories\ProductDownloadableSampleRepository;
 use Webkul\Product\Repositories\ProductAttributeValueRepository;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -132,12 +133,20 @@ class ProductController extends Controller
         return view($this->_config['view'])->with('brands',$brands);
     }
 
-    public function brandsCreate()
+    public function brandsCreate(Request $request)
     {
         $inputs = request()->all();
+        $name = NULL;
+        if ($request->hasFile('brand_mage')) {
+            $image = $request->file('brand_mage');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/Brand_image');
+            $image->move($destinationPath, $name);
+        }
         DB::table('brands')->insert(
-            ['name' => $inputs['b_name']]
+            ['name' => $inputs['b_name'],'image'=>$name]
         );
+        
         return redirect()->back();
     }
 
@@ -150,10 +159,21 @@ class ProductController extends Controller
         return redirect()->back();
     }
 
-    public function brandsEdit(){
-
+    public function brandsEdit(Request $request){
+        $arr = array();
         $inputs = request()->all();
-        $brandsUpdate = DB::table('brands')->where('id', $inputs['id'])->update(['name'=>$inputs['name']]);
+        $name = NULL;
+        if ($request->hasFile('brand_mage')) {
+            $image = $request->file('brand_mage');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/Brand_image');
+            $image->move($destinationPath, $name);
+            $arr['image'] = $name;
+
+        }
+        $arr['name'] = $inputs['name'];
+
+        $brandsUpdate = DB::table('brands')->where('id', $inputs['id'])->update($arr);
         return redirect()->back();
 
     }
@@ -164,11 +184,29 @@ class ProductController extends Controller
         return view($this->_config['view'])->with('models',$models);
     }
 
-     public function modelsCreate()
+     public function modelsCreate(Request $request)
     {
         $inputs = request()->all();
+        $fname = NULL;
+        if ($request->hasFile('model_full_mage')) {
+            $image1 = $request->file('model_full_mage');
+            $fname = time().'.'.str_replace(' ', '',$image1->getClientOriginalName()).$image1->getClientOriginalExtension();
+            $destinationPath1 = public_path('/Model_image');
+            $image1->move($destinationPath1, $fname);
+        }
+        $tname = NULL;
+        if ($request->hasFile('model_thumbnail_mage')) {
+            $image = $request->file('model_thumbnail_mage');
+            $tname = time().'.'.str_replace(' ', '',$image->getClientOriginalName()).$image->getClientOriginalExtension();
+            $destinationPath = public_path('/Model_image');
+            $image->move($destinationPath, $tname);
+        }
         DB::table('models')->insert(
-            ['name' => $inputs['m_name']]
+            [
+                'name' => $inputs['m_name'],
+                'full_image'=>$fname,
+                'thumbnail_image'=>$tname
+            ]
         );
         return redirect()->back();
     }
@@ -182,10 +220,29 @@ class ProductController extends Controller
         return redirect()->back();
     }
 
-    public function modelsEdit(){
-
+    public function modelsEdit(Request $request){
+        $arr = array();
         $inputs = request()->all();
-        $brandsUpdate = DB::table('models')->where('id', $inputs['id'])->update(['name'=>$inputs['name']]);
+        $fname = NULL;
+        if ($request->hasFile('model_full_mage')) {
+            $image1 = $request->file('model_full_mage');
+            $fname = time().'.'.str_replace(' ', '',$image1->getClientOriginalName()).$image1->getClientOriginalExtension();
+            $destinationPath1 = public_path('/Model_image');
+            $image1->move($destinationPath1, $fname);
+            $arr['full_image'] = $fname;
+
+        }
+        $tname = NULL;
+        if ($request->hasFile('model_thumbnail_mage')) {
+            $image = $request->file('model_thumbnail_mage');
+            $tname = time().'.'.str_replace(' ', '',$image->getClientOriginalName()).$image->getClientOriginalExtension();
+            $destinationPath = public_path('/Model_image');
+            $image->move($destinationPath, $tname);
+            $arr['thumbnail_image'] = $tname;
+        }
+        $arr['name'] = $inputs['name'];
+
+        $brandsUpdate = DB::table('models')->where('id', $inputs['id'])->update($arr);
         return redirect()->back();
 
     }

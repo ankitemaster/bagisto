@@ -18,7 +18,9 @@
     <thead>
       <tr>
         <th>ID</th>
-        <th>Brand Name</th>
+        <th>Full Image</th>
+        <th>Thumbnail Image</th>
+        <th>Model Name</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -30,6 +32,8 @@
     	?>
     	<tr>
     	<td><?php echo ($key+1);?></td>
+    	<td><img src="<?php echo url('Model_image').'/'.$value->full_image; ?>" width="50" height="50" style="border-radius: 50%;" ></td>
+    	<td><img src="<?php echo url('Model_image').'/'.$value->thumbnail_image; ?>" width="50" height="50" style="border-radius: 50%;" ></td>
         <td><?php echo $value->name; ?></td>
         <td>
         	<button onclick="showEditModel('{{ $value->id }}','{{ $value->name }}')"><span class="icon pencil-lg-icon"></span></button>
@@ -53,11 +57,19 @@
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
-	     <form action="{{ route('admin.catalog.products.modelsCreate') }}" method="post" style="padding: 20px;">
+	     <form action="{{ route('admin.catalog.products.modelsCreate') }}" method="post" style="padding: 20px;" enctype="multipart/form-data">
 	     	@csrf
 	     	<div class="form-group">
 	     		<label for="model name">Model Name</label>
 	     		<input type="text" class="form-control" name="m_name" placeholder="Please Enter Model Name" required="">
+	     	</div>
+	     	<div class="form-group">
+	     		<label for="">Full Image Upload</label>
+	     		<input type="file" class="form-control" name="model_full_mage"required="">
+	     	</div>
+	     	<div class="form-group">
+	     		<label for="">Thumbnail Image Upload</label>
+	     		<input type="file" class="form-control" name="model_thumbnail_mage"required="">
 	     	</div>
 	     	<div class="form-group">
 	     		<button type="submit" class="btn btn-primary">Save</button>
@@ -81,12 +93,20 @@
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
-	      <form action="{{ route('admin.catalog.products.brandsEdit') }}" method="post" style="padding: 20px;">
+	      <form action="{{ route('admin.catalog.products.modelsEdit') }}" method="post" style="padding: 20px;" enctype="multipart/form-data">
 	      	@csrf
-	      	<input type="hidden" name="id" id="brands_id" value="0">
+	      	<input type="hidden" name="id" id="models_id" value="0">
 	     	<div class="form-group">
 	     		<label for="model_brand">Model Name</label>
-	     		<input id="brands_name" type="text" class="form-control" name="name" placeholder="Please Enter Brand Name" required="">
+	     		<input id="models_name" type="text" class="form-control" name="name" placeholder="Please Enter Brand Name" required="">
+	     	</div>
+	     	<div class="form-group">
+	     		<label for="">Full Image Upload</label>
+	     		<input type="file" class="form-control" name="model_full_mage">
+	     	</div>
+	     	<div class="form-group">
+	     		<label for="">Thumbnail Image Upload</label>
+	     		<input type="file" class="form-control" name="model_thumbnail_mage">
 	     	</div>
 	     	<div class="form-group">
 	     		<button type="submit" class="btn btn-primary">Save</button>
@@ -103,8 +123,8 @@
 
 	<script type="text/javascript">
 		function showEditModel(id,name) {
-			document.getElementById("brands_id").value = id;
-			document.getElementById("brands_name").value = name;
+			document.getElementById("models_id").value = id;
+			document.getElementById("models_name").value = name;
 
 			document.getElementById("editBrandModal").style.display = "block";
 

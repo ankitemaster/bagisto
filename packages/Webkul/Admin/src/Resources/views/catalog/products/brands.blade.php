@@ -17,6 +17,7 @@
     <thead>
       <tr>
         <th>ID</th>
+        <th>Brand Image</th>
         <th>Brand Name</th>
         <th>Actions</th>
       </tr>
@@ -29,6 +30,7 @@
     	?>
     	<tr>
     	<td><?php echo ($key+1);?></td>
+    	<td><img src="<?php echo url('Brand_image').'/'.$value->image; ?>" width="50" height="50" style="border-radius: 50%;" ></td>
         <td><?php echo $value->name; ?></td>
         <td>
         	<button onclick="showEditModel('{{ $value->id }}','{{ $value->name }}')"><span class="icon pencil-lg-icon"></span></button>
@@ -51,7 +53,7 @@
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
-	      <form action="{{ route('admin.catalog.products.brandsCreate') }}" method="post" style="padding: 20px;">
+	      <form action="{{ route('admin.catalog.products.brandsCreate') }}" method="post" style="padding: 20px;"  enctype="multipart/form-data">
 	      	@csrf
 	     	<div class="form-group">
 	     		<label for="model_brand">Brand Name</label>
@@ -84,12 +86,16 @@
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
-	      <form action="{{ route('admin.catalog.products.brandsEdit') }}" method="post" style="padding: 20px;">
+	      <form action="{{ route('admin.catalog.products.brandsEdit') }}" method="post" style="padding: 20px;" enctype="multipart/form-data">
 	      	@csrf
 	      	<input type="hidden" name="id" id="brands_id" value="0">
 	     	<div class="form-group">
 	     		<label for="model_brand">Brand Name</label>
 	     		<input id="brands_name" type="text" class="form-control" name="name" placeholder="Please Enter Brand Name" required="">
+	     	</div>
+	     	<div class="form-group">
+	     		<label for="">Image Upload</label>
+	     		<input type="file" class="form-control" name="brand_mage"><br>
 	     	</div>
 	     	<div class="form-group">
 	     		<button type="submit" class="btn btn-primary">Save</button>

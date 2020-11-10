@@ -152,6 +152,8 @@ Route::group(['prefix' => 'api'], function ($router) {
 
         Route::put('customer/profile', 'SessionController@update');
 
+        Route::post('customer/image', 'CustomerController@customer_profile');
+
         Route::post('customer/register', 'CustomerController@create');
 
         Route::get('customers/{id}', 'CustomerController@get')->defaults('_config', [

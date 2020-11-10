@@ -65,6 +65,7 @@ class ProductDataGrid extends DataGrid
                 'product_flat.locale',
                 'product_flat.channel',
                 'product_flat.product_id',
+                'products.item_type_id',
                 'products.sku as product_sku',
                 'product_flat.name as product_name',
                 'products.type as product_type',
@@ -130,6 +131,15 @@ class ProductDataGrid extends DataGrid
         $this->addColumn([
             'index'      => 'product_type',
             'label'      => trans('admin::app.datagrid.type'),
+            'type'       => 'string',
+            'sortable'   => true,
+            'searchable' => true,
+            'filterable' => true,
+        ]);
+
+        $this->addColumn([
+            'index'      => 'item_type_id',
+            'label'      => trans('admin::app.datagrid.item_type_id'),
             'type'       => 'string',
             'sortable'   => true,
             'searchable' => true,

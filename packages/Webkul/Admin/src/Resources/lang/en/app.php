@@ -156,6 +156,7 @@ return [
         'direction' => 'Direction',
         'fullname' => 'Full Name',
         'type' => 'Type',
+        'item_type_id' => 'Item Type',
         'required' => 'Required',
         'unique' => 'Unique',
         'per-locale' => 'Locale Based',

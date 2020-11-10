@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
 use Webkul\Customer\Repositories\CustomerRepository;
 use Webkul\Customer\Repositories\CustomerGroupRepository;
+use DB;
 
 class CustomerController extends Controller
 {
@@ -64,6 +65,30 @@ class CustomerController extends Controller
 
         $this->customerGroupRepository = $customerGroupRepository;
     }
+
+    public function customer_profile(Request $request)
+    {
+        $id = $request->input('id');
+        $name = NULL;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/customer/images');
+            $image->move($destinationPath, $name);
+        }
+
+        $data = DB::table('customers')->where('id',$id)->update(
+                     array(
+                            'image'   =>   url('/customer/images').'/'.$name
+                     )
+                );
+
+        return response()->json([
+            'message' => 'Your image has been updated successfully.',
+            'image' => url('/customer/images').'/'.$name
+        ]);
+    }
+
 
     /**
      * Method to store user's sign up form data to DB.

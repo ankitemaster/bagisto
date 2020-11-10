@@ -274,7 +274,7 @@ Route::group(['middleware' => ['web']], function () {
                 Route::get('/modelsDelete/{id}', 'Webkul\Product\Http\Controllers\ProductController@modelsDelete'
                 )->name('admin.catalog.products.modelsDelete');
 
-                Route::put('/modelsEdit', 'Webkul\Product\Http\Controllers\ProductController@modelsEdit'
+                Route::post('/modelsEdit', 'Webkul\Product\Http\Controllers\ProductController@modelsEdit'
                 )->name('admin.catalog.products.modelsEdit');
 
                 // Catalog Models Routes

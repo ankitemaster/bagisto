@@ -56,6 +56,7 @@
                     <div class="details">
 
                         <div class="product-heading">
+                            
                             <span>{{ $product->name }}</span>
                         </div>
 

@@ -70,14 +70,15 @@
                         </div>
 
                         <!---- item type ---> 
-                        <div class="control-group" id="models_item" style="display: none;">
+                        @if(request()->input('type') == "customizable")
+                        <div class="control-group" id="models_item" style="">
                             <label for="type" class="required" >Models</label>
-                            <select class="control" v-validate="'required'" id="item_type_id" name="item_type_id" {{ $familyId ? 'disabled' : '' }} data-vv-as="&quot;{{ __('admin::app.catalog.products.product-type') }}&quot;">
-                                    <option value=""></option>
+                            <select class="control" v-validate="'required'" id="item_type_id" name="item_type_id" >
                                     <option value="tshirt">T-Shirt</option>
                                     <option value="mobile">Mobile</option>
                             </select>
                         </div>
+                        @endif
 
                         <div class="control-group" :class="[errors.has('attribute_family_id') ? 'has-error' : '']">
                             <label for="attribute_family_id" class="required">{{ __('admin::app.catalog.products.familiy') }}</label>
