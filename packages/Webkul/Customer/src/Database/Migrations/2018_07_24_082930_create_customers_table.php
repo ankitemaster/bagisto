@@ -20,7 +20,7 @@ class CreateCustomersTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->enum('gender', ['Male', 'Female']);
-            $table->text('image');
+            $table->text('image')->nullable();
             $table->date('date_of_birth')->nullable();
             $table->string('email')->unique();
             $table->tinyInteger('status')->default(1);
