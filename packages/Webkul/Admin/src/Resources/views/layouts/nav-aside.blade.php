@@ -1,11 +1,19 @@
 <div class="aside-nav">
     <ul>
-        <li>
-            <a href="{{ route('admin.catalog.products.brands') }}">Brands</a>
-        </li>
-         <li>
-            <a href="{{ route('admin.catalog.products.models') }}">Models</a>
-        </li>
+        <?php
+
+            $current_url =  request()->route()->getName();
+            if(strpos($current_url, 'admin.catalog.') !== false){ ?>
+                <li>
+                    <a href="{{ route('admin.catalog.products.brands') }}">Brands</a>
+                </li>
+                 <li>
+                    <a href="{{ route('admin.catalog.products.models') }}">Models</a>
+                </li>
+            <?php }
+
+        ?>
+        
         @if (request()->route()->getName() != 'admin.configuration.index')
             <?php $keys = explode('.', $menu->currentKey);  ?>
 
@@ -28,21 +36,21 @@
             @else
 
             <li class="active">
-                <a href="http://localhost:8000/admin/catalog/products"> 
+                <a href="{{url('admin/catalog/products')}}"> 
                     Products<i class="angle-right-icon"></i>
                 </a>
             </li> 
             <li>
-                <a href="http://localhost:8000/admin/catalog/categories">
+                <a href="{{url('admin/catalog/categories')}}">
                     Categories </a>
             </li> 
             <li>
-                <a href="http://localhost:8000/admin/catalog/attributes">
+                <a href="{{url('admin/catalog/attributes')}}">
                     Attributes
                 </a>
             </li> 
             <li>
-                <a href="http://localhost:8000/admin/catalog/families">
+                <a href="{{url('admin/catalog/families')}}">
                     Attribute Families
                 </a>
             </li>
