@@ -36,21 +36,21 @@
             @else
 
             <li class="active">
-                <a href="{{url('admin/catalog/products')}}"> 
+                <a href="/admin/catalog/products"> 
                     Products<i class="angle-right-icon"></i>
                 </a>
             </li> 
             <li>
-                <a href="{{url('admin/catalog/categories')}}">
+                <a href="/admin/catalog/categories">
                     Categories </a>
             </li> 
             <li>
-                <a href="{{url('admin/catalog/attributes')}}">
+                <a href="/admin/catalog/attributes">
                     Attributes
                 </a>
             </li> 
             <li>
-                <a href="{{url('admin/catalog/families')}}">
+                <a href="/admin/catalog/families">
                     Attribute Families
                 </a>
             </li>
