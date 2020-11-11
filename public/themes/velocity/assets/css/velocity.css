@@ -121,6 +121,15 @@ header .mini-cart-container~.compare-btn, header .mini-cart-container~.wishlist-
     position: absolute;
     background: #337ab7;
 }
+.nav-container .wrapper ul li .category-logo, .nav-container .wrapper ul li .language-logo-wrapper {
+    width: 50px;
+    height: 18px;
+    margin-right: 5px;
+    display: inline-block;
+}
+.category-container .grid-card, .search-container .grid-card {
+    width: 100%;
+}
 }
 .btn-add-to-cart {
     padding: 3px 14px!important;
