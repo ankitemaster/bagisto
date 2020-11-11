@@ -185,36 +185,36 @@
                         <a href="index.html#">
                             <img src="assets/images/banners/cats/banner-1.jpg" alt="banner">
                         </a>
-                    </div><!-- End .banner -->
+                    </div>
 
                     <div class="banner banner-image">
                         <a href="index.html#">
                             <img src="assets/images/banners/cats/banner-2.jpg" alt="banner">
                         </a>
-                    </div><!-- End .banner -->
+                    </div>
 
                     <div class="banner banner-image">
                         <a href="index.html#">
                             <img src="assets/images/banners/cats/banner-3.jpg" alt="banner">
                         </a>
-                    </div><!-- End .banner -->
+                    </div>
 
                     <div class="banner banner-image">
                         <a href="index.html#">
                             <img src="assets/images/banners/cats/banner-4.jpg" alt="banner">
                         </a>
-                    </div><!-- End .banner -->
+                    </div>
 
                     <div class="banner banner-image">
                         <a href="index.html#">
                             <img src="assets/images/banners/cats/banner-2.jpg" alt="banner">
                         </a>
-                    </div><!-- End .banner -->
-                </div><!-- End .cat-carousel -->
-            </div><!-- End .container -->
-        </div><!-- End .banners-section -->
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <div class="mb-5"></div><!-- margin -->
+        <div class="mb-5"></div>
 
         <div class="container arrived-products">
             <h2 class="subtitle">

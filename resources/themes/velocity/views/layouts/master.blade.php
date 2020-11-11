@@ -19,6 +19,7 @@
 
         <link rel="stylesheet" href="{{ asset('themes/velocity/assets/css/velocity.css') }}" />
         <link rel="stylesheet" href="{{ asset('themes/velocity/assets/css/bootstrap.min.css') }}" />
+        <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600&display=swap" rel="stylesheet">
         
 
         @if (core()->getCurrentLocale()->direction == 'rtl')
