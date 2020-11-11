@@ -51,8 +51,8 @@
     );
 
     $products = $productRepository->getAll($category->id);
-@endphp
 
+@endphp
 @section('content-wrapper')
     <category-component></category-component>
 @stop

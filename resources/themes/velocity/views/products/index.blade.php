@@ -60,33 +60,34 @@
 @push('scripts')
     <script type="text/x-template" id="category-template">
         <section class="row col-12 velocity-divide-page category-page-wrapper">
-            {!! view_render_event('bagisto.shop.productOrCategory.index.before', ['category' => $category]) !!}
-
-            @if (in_array($category->display_mode, [null, 'products_only', 'products_and_description']))
-                @include ('shop::products.list.layered-navigation')
-            @endif
-
             <div class="category-container right">
                 <div class="row remove-padding-margin">
                     <div class="pl0 col-12">
                         <h1 class="fw6 mb10">{{ $category->name }}</h1>
-
-                        @if ($isDescriptionDisplayMode)
-                            @if ($category->description)
-                                <div class="category-description">
-                                    {!! $category->description !!}
+                    </div>
+                    <?php 
+                        foreach ($subcategory as $key => $value) {
+                    ?>
+                        <div class="category-block">
+                            <div class="row col-12 remove-padding-margin">
+                                <div class="card grid-card product-card-new">
+                                    <a href="{{  strtolower(str_replace(" ","-",$category->name)) }}/{{ strtolower(str_replace(" ","-",$value->name)) }}" title="Mens Plain Tees" class="product-image-container">
+                                        <img loading="lazy" alt="" src="{{ $value->image_url }}" data-src="" class="card-img-top lzy_img"> 
+                                    </a> 
+                                    <div class="card-body">
+                                        <div class="product-name col-12 no-padding">
+                                            <a title="" href="{{  strtolower(str_replace(" ","-",$category->name)) }}/{{ strtolower(str_replace(" ","-",$value->name)) }}" class="unset">
+                                                <span class="fs16">{{ $value->name }}</span>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                            @endif
-                        @endif
-                    </div>
-
-                    <div class="col-12 no-padding">
-                        <div class="hero-image">
-                            @if (!is_null($category->image))
-                                <img class="logo" src="{{ $category->image_url }}" alt="" width="20" height="20" />
-                            @endif
+                            </div>
                         </div>
-                    </div>
+                    <?php
+                        }
+                    ?>
+                    
                 </div>
 
                 @if ($isProductsDisplayMode)

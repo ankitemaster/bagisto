@@ -93,6 +93,11 @@ class CategoryRepository extends Repository
         return $this->getModel()->where('parent_id', NULL)->get();
     }
 
+    public function getSubCategories($id)
+    {
+        return $this->getModel()->where('parent_id', $id)->get();
+    }
+
     /**
      * get visible category tree
      *

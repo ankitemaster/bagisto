@@ -57,7 +57,13 @@ class ProductsCategoriesProxyController extends Controller
 
             if ($category = $this->categoryRepository->findByPath($slugOrPath)) {
 
-                return view($this->_config['category_view'], compact('category'));
+                $subcategory = $this->categoryRepository->getSubCategories($category->id);
+
+                // echo "<pre>";
+                // print_r($subcategory->toArray());
+                // die;
+
+                return view($this->_config['category_view'])->with('category',$category)->with('subcategory',$subcategory);
             }
 
             if ($product = $this->productRepository->findBySlug($slugOrPath)) {
