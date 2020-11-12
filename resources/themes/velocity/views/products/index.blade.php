@@ -60,6 +60,11 @@
 @push('scripts')
     <script type="text/x-template" id="category-template">
         <section class="row col-12 velocity-divide-page category-page-wrapper">
+            {!! view_render_event('bagisto.shop.productOrCategory.index.before', ['category' => $category]) !!}
+
+            @if (in_array($category->display_mode, [null, 'products_only', 'products_and_description']))
+                @include ('shop::products.list.layered-navigation')
+            @endif
             <div class="category-container right">
                 <div class="row remove-padding-margin">
                     <div class="pl0 col-12">

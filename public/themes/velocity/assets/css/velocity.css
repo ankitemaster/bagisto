@@ -179,3 +179,7 @@ nav#top {
 #top .dropdown {
     margin-right: 0px;
 }
+.view-mode .rango-view-grid-container.active {
+    color: #fff;
+    background-color: #1b75bc;
+}
