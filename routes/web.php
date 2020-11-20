@@ -47,3 +47,6 @@ Route::get('product-sticky-info','HomeController@productstickyinfo')->name('prod
 Route::get('product-sticky-tab','HomeController@productstickytab')->name('product-sticky-tab');
 Route::get('product','HomeController@product')->name('product');
 Route::get('single','HomeController@single')->name('single');
+
+
+Route::get('generate-token','HomeController@generate')->name('generate-token');
