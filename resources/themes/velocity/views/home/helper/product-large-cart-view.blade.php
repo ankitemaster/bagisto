@@ -29,7 +29,6 @@
                             <span class="card-actual-price mr10">
                                 {{ $product['currency-icon'] }}{{ $product['actual-price'] }}
                             </span>
-
                             <span class="card-discount">
                                 {{ (($product['actual-price'] - $product['selling-price']) * 100) / $product['actual-price'] }}%
                             </span>

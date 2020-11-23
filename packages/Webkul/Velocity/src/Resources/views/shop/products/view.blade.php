@@ -132,7 +132,6 @@
                                         ])
                                     </div>
                                 </div>
-
                                 {!! view_render_event('bagisto.shop.products.view.short_description.before', ['product' => $product]) !!}
 
                                 @if ($product->short_description)

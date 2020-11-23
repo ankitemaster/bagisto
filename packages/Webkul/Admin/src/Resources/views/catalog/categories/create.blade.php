@@ -138,11 +138,11 @@
 
                     <accordian :title="'{{ __('admin::app.catalog.categories.type') }}'" :active="true">
                         <div slot="body">
-                            <div class="control-group" :class="[errors.has('type') ? 'has-error' : '']">
+                            <div class="control-group" :class="[errors.has('type') ? 'has-error' : '']">dfghdfhdfhdfhdhdfhdfh
                                 <label for="type" class="required">{{ __('admin::app.catalog.categories.type') }}</label>
                                 <select class="control" name="type" v-validate="'required'" data-vv-as="&quot;{{ __('admin::app.catalog.categories.type') }}&quot;">
                                     <option value="1">Simple</option>
-                                    <option value="2">Customizable</option>
+                                    <option value="2">Variable</option>
                                 </select>
                                 <span class="control-error" v-if="errors.has('type')">
                                     @{{ errors.first('type') }}

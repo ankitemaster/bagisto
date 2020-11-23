@@ -55,6 +55,7 @@
 {!! view_render_event('bagisto.shop.products.list.card.before', ['product' => $product]) !!}
     @if (isset($list) && $list)
         <div class="col-12 lg-card-container list-card product-card row">
+
             <div class="product-image">
                 <a
                     title="{{ $product->name }}"
@@ -68,7 +69,6 @@
                     </div>
                 </a>
             </div>
-
             <div class="product-information">
                 <div>
                     <div class="product-name">

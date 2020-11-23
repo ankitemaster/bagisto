@@ -273,7 +273,7 @@ class ProductController extends Controller
     public function store()
     {
         if (! request()->get('family')
-            && ProductType::hasVariants(request()->input('type'))
+            //&& ProductType::hasVariants(request()->input('type'))
             && request()->input('sku') != ''
         ) {
             return redirect(url()->current() . '?type=' . request()->input('type') . '&family=' . request()->input('attribute_family_id') . '&sku=' . request()->input('sku'));

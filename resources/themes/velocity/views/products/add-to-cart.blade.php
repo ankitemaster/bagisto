@@ -60,7 +60,8 @@
                     </button>
                 </form>
             @else
-                <add-to-cart
+            <a href="{{ route('shop.productOrCategory.index', $product->url_key) }}" title="{{ $product->name }}" class="btn btn-add-to-cart btn-lg view-btn"><i class="material-icons text-down-3">shopping_cart</i>View Details</a>
+                <!-- <add-to-cart
                     form="true"
                     csrf-token='{{ csrf_token() }}'
                     product-flat-id="{{ $product->id }}"
@@ -72,7 +73,7 @@
                     is-enable={{ ! $product->isSaleable() ? 'false' : 'true' }}
                     show-cart-icon={{ ! (isset($showCartIcon) && ! $showCartIcon) }}
                     btn-text="{{ (! isset($moveToCart) && $product->type == 'booking') ?  __('shop::app.products.book-now') : $btnText ?? __('shop::app.products.add-to-cart') }}">
-                </add-to-cart>
+                </add-to-cart> -->
             @endif
         </div>
     </div>

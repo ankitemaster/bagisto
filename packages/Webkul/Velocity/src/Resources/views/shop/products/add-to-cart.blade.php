@@ -24,6 +24,7 @@
         @endif
 
         <div class="add-to-cart-btn pl0">
+        
             @if (isset($form) && !$form)
                 <button
                     type="submit"

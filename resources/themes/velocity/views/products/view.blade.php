@@ -133,19 +133,6 @@
                                     </div>
                                 </div>
 
-                                {!! view_render_event('bagisto.shop.products.view.short_description.before', ['product' => $product]) !!}
-
-                                @if ($product->short_description)
-                                    <div class="description">
-                                        <h3 class="col-lg-12">{{ __('velocity::app.products.short-description') }}</h3>
-
-                                        {!! $product->short_description !!}
-                                    </div>
-                                @endif
-
-                                {!! view_render_event('bagisto.shop.products.view.short_description.after', ['product' => $product]) !!}
-
-
                                 {!! view_render_event('bagisto.shop.products.view.quantity.before', ['product' => $product]) !!}
 
                                 @if ($product->getTypeInstance()->showQuantityBox())

@@ -129,8 +129,7 @@
                     src="{{ $productBaseImage['large_image_url'] }}"
                     :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" />
 
-                    {{-- <product-quick-view-btn :quick-view-details="product"></product-quick-view-btn> --}}
-                    <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn>
+                    
             </a>
 
             @if ($product->new)

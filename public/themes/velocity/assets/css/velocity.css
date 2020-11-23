@@ -196,3 +196,14 @@ nav#top {
     margin-bottom: 0px!important;
     display: inline-block;
 }
+.cd-quick-view .cd-slider li.selected img {
+    width: auto;
+    height: 100%;
+    display: inline-block!important;
+}
+.view-btn {
+    font-size: 18px!important;
+}
+span.price-label {
+    display: none;
+}
