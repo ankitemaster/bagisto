@@ -122,6 +122,7 @@ class CustomerController extends Controller
         Event::dispatch('customer.registration.after', $customer);
 
         return response()->json([
+            'success' => 'True',
             'message' => 'Your account has been created successfully.',
         ]);
     }
@@ -141,6 +142,7 @@ class CustomerController extends Controller
         }
 
         return response()->json([
+            'success' => 'True',
             'message' => 'Invalid Request.',
         ], 403);
     }

@@ -57,6 +57,7 @@ class SessionController extends Controller
 
         if (! $jwtToken = auth()->guard($this->guard)->attempt(request()->only('email', 'password'))) {
             return response()->json([
+                'success' => 'False',
                 'error' => 'Invalid Email or Password',
             ], 401);
         }
@@ -69,6 +70,7 @@ class SessionController extends Controller
         // die;
 
         return response()->json([
+            'success' => 'True',
             'token'   => $jwtToken,
             'message' => 'Logged in successfully.',
             'data'    => new CustomerResource($customer),
@@ -118,6 +120,7 @@ class SessionController extends Controller
         $updatedCustomer = $this->customerRepository->update($data, $customer->id);
 
         return response()->json([
+            'success' => 'True',
             'message' => 'Your account has been updated successfully.',
             'data'    => new CustomerResource($updatedCustomer),
         ]);
@@ -133,6 +136,7 @@ class SessionController extends Controller
         auth()->guard($this->guard)->logout();
 
         return response()->json([
+            'success' => 'True',
             'message' => 'Logged out successfully.',
         ]);
     }
