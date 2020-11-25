@@ -222,3 +222,7 @@ div#quick-view-btn-container {
 .col-lg-3.col-md-12.ltr.recently-viewed {
     display: none;
 }
+.product-price span:first-child, .product-price span:last-child {
+    font-size: 20px;
+    font-weight: 600;
+}
