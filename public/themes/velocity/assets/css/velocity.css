@@ -223,6 +223,6 @@ div#quick-view-btn-container {
     display: none;
 }
 .product-price span:first-child, .product-price span:last-child {
-    font-size: 20px;
+    font-size: 20px!important;
     font-weight: 600;
 }
