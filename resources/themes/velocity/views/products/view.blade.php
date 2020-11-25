@@ -167,8 +167,11 @@
                                 @include ('shop::products.view.reviews', ['accordian' => true])
                             </div>
                         </div>
+                    </product-view>
 
-                        @include ('shop::products.view.downloadable')
+                    <!-- <div class="row">
+                        <div class="col-12 pro-details">
+                            @include ('shop::products.view.downloadable')
 
                                 @include ('shop::products.view.grouped-products')
 
@@ -177,11 +180,18 @@
                                 @include ('shop::products.view.attributes', [
                                     'active' => true
                                 ])
-                    {{-- product long description --}}
-                    @include ('shop::products.view.description')
-                    </product-view>
+                        </div>
+                    </div> -->
+                    
                 </div>
             </section>
+
+            <div class="row">
+                        <div class="col-12 pro-details">
+                            {{-- product long description --}}
+                        @include ('shop::products.view.description')
+                        </div>
+                    </div>
 
             <div class="related-products">
                 @include('shop::products.view.related-products')
