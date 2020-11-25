@@ -167,9 +167,8 @@
                                 @include ('shop::products.view.reviews', ['accordian' => true])
                             </div>
                         </div>
-                    </product-view>
 
-                    @include ('shop::products.view.downloadable')
+                        @include ('shop::products.view.downloadable')
 
                                 @include ('shop::products.view.grouped-products')
 
@@ -180,8 +179,7 @@
                                 ])
                     {{-- product long description --}}
                     @include ('shop::products.view.description')
-
-
+                    </product-view>
                 </div>
             </section>
 

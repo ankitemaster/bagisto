@@ -207,3 +207,6 @@ nav#top {
 span.price-label {
     display: none;
 }
+.product-actions {
+    margin-top: 6%;
+}

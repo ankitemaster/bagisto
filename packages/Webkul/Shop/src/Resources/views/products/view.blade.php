@@ -76,7 +76,7 @@
 
 
                         {!! view_render_event('bagisto.shop.products.view.quantity.before', ['product' => $product]) !!}
-
+                        
                         @if ($product->getTypeInstance()->showQuantityBox())
                             <quantity-changer></quantity-changer>
                         @else
