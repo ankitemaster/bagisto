@@ -219,3 +219,6 @@ span.price-label {
 div#quick-view-btn-container {
     display: none!important;
 }
+.col-lg-3.col-md-12.ltr.recently-viewed {
+    display: none;
+}
