@@ -207,9 +207,6 @@ nav#top {
 span.price-label {
     display: none;
 }
-.product-actions {
-    margin-top: 6%;
-}
 .product-price .regular-price {
     font-weight: 500;
     margin-right: 10px;
@@ -225,4 +222,7 @@ div#quick-view-btn-container {
 .product-price span:first-child, .product-price span:last-child {
     font-size: 20px!important;
     font-weight: 600;
+}
+span.price-label {
+    display: none!important;
 }
