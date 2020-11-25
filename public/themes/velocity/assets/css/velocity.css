@@ -216,3 +216,6 @@ span.price-label {
     text-decoration: line-through;
     display: inline-block;
 }
+div#quick-view-btn-container {
+    display: none!important;
+}
