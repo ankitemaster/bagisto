@@ -37,4 +37,13 @@ use Webkul\Product\Repositories\SearchRepository;
 
         return view($this->_config['view'])->with('results', $results->count() ? $results : null);
     }
+
+     public function autocomplete(Request $request)
+    {
+        $data = Product_flat::select("name")
+                ->where("name","LIKE","%{$request->query}%")
+                ->get();
+   
+        return response()->json($data);
+    }
 }

@@ -18,6 +18,8 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
         'view' => 'shop::search.search'
     ])->name('shop.search.index');
 
+    Route::get('autocomplete', 'SearchController@autocomplete')->name('autocomplete');
+
     //Upload image for search product
     Route::post('/upload-search-image', 'Webkul\Shop\Http\Controllers\HomeController@upload')->name('shop.image.search.upload');
 
@@ -30,6 +32,9 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
     Route::get('get/states/{country}', 'Webkul\Core\Http\Controllers\CountryStateController@getStates')->defaults('_config', [
         'view' => 'shop::test'
     ])->name('get.states');
+
+
+    Route::get('phpinfo', 'Webkul\Core\Http\Controllers\InfoController@index');
 
     //checkout and cart
     //Cart Items(listing)

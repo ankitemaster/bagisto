@@ -88,12 +88,12 @@
                             <input type="hidden" name="product_id" value="{{ $product->product_id }}">
 
                             {{-- product-gallery --}}
-                            <div class="left col-lg-5">
+                            <div class="left col-lg-6">
                                 @include ('shop::products.view.gallery')
                             </div>
 
                             {{-- right-section --}}
-                            <div class="right col-lg-7">
+                            <div class="right col-lg-6">
                                 {{-- product-info-section --}}
                                 <div class="row info">
                                     <h2 class="col-lg-12">{{ $product->name }}</h2>
@@ -115,12 +115,28 @@
                                             </div>
                                         </div>
                                     @endif
-
-                                    @include ('shop::products.view.stock', ['product' => $product])
-
-                                    <div class="col-12 price">
+                                     <div class="col-12 price">
                                         @include ('shop::products.price', ['product' => $product])
                                     </div>
+                                    <div class="col-lg-12">
+                                       @include ('shop::products.view.configurable-options') 
+                                    </div>
+                                    
+                                    @include ('shop::products.view.stock', ['product' => $product])
+
+                                    {!! view_render_event('bagisto.shop.products.view.quantity.before', ['product' => $product]) !!}
+
+                                @if ($product->getTypeInstance()->showQuantityBox())
+                                    <div>
+                                        <quantity-changer></quantity-changer>
+                                    </div>
+                                @else
+                                    <input type="hidden" name="quantity" value="1">
+                                @endif
+
+                                {!! view_render_event('bagisto.shop.products.view.quantity.after', ['product' => $product]) !!}
+
+                                   
 
                                     <div class="product-actions">
                                         @include ('shop::products.add-to-cart', [
@@ -133,21 +149,27 @@
                                     </div>
                                 </div>
 
-                                {!! view_render_event('bagisto.shop.products.view.quantity.before', ['product' => $product]) !!}
+                                
 
-                                @if ($product->getTypeInstance()->showQuantityBox())
-                                    <div>
-                                        <quantity-changer></quantity-changer>
-                                    </div>
-                                @else
-                                    <input type="hidden" name="quantity" value="1">
-                                @endif
+                                <!-- @include ('shop::products.view.configurable-options') -->
 
-                                {!! view_render_event('bagisto.shop.products.view.quantity.after', ['product' => $product]) !!}
+                                <!-- @include ('shop::products.view.downloadable')
 
-                                @include ('shop::products.view.configurable-options')
+                                @include ('shop::products.view.grouped-products')
 
-                                @include ('shop::products.view.downloadable')
+                                @include ('shop::products.view.bundle-options')
+
+                                @include ('shop::products.view.attributes', [
+                                    'active' => true
+                                ]) -->
+
+                                {{-- reviews count --}}
+                                @include ('shop::products.view.reviews', ['accordian' => true])
+                            </div>
+                        </div>
+                    </product-view>
+
+                    @include ('shop::products.view.downloadable')
 
                                 @include ('shop::products.view.grouped-products')
 
@@ -156,15 +178,10 @@
                                 @include ('shop::products.view.attributes', [
                                     'active' => true
                                 ])
+                    {{-- product long description --}}
+                    @include ('shop::products.view.description')
 
-                                {{-- product long description --}}
-                                @include ('shop::products.view.description')
 
-                                {{-- reviews count --}}
-                                @include ('shop::products.view.reviews', ['accordian' => true])
-                            </div>
-                        </div>
-                    </product-view>
                 </div>
             </section>
 
